@@ -889,6 +889,7 @@ export default {
       const urlParams = new URLSearchParams(window.location.search);
       if (urlParams.has('auth') && urlParams.has('test')) {
         this.fromRuxailab = true
+        this.$store.commit('setCalibName', urlParams.get('auth')) // Set the session ID (user ID)
         await this.getRuxailabConfig(urlParams.get('auth'), urlParams.get('test'));
       }
     },
